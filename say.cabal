@@ -28,6 +28,12 @@ library
     c-sources:
       foreign/TTS-windows.cpp
       foreign/cTTS.cpp
+  if os(osx)
+    extra-libraries:
+      stdc++
+    c-sources:
+      foreign/TTS-osx.cpp
+      foreign/cTTS.cpp
 
 executable saytest
   main-is:             Main.hs
