@@ -22,14 +22,12 @@ library
   hs-source-dirs:      src
   include-dirs:        include
   if os(windows)
-    -- includes:            "sapi.h"
-    -- install-includes:    "sapi.h"
     extra-libraries:
-          "user32", "gdi32", "winmm", "advapi32", "shell32", "shfolder", "stdc++"
+          "user32", "gdi32", "winmm", "advapi32", "shell32", "shfolder", "stdc++", "TTSWinWrapper"
     ld-options:        -L.
     c-sources:
-      foreign/cTTS.cpp
       foreign/TTS-windows.cpp
+      foreign/cTTS.cpp
 
 executable saytest
   main-is:             Main.hs
