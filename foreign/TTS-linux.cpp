@@ -44,7 +44,7 @@ void TTS::setVolume(int v)
 {
 	if (spd)
 	{
-		spd_set_volume(spd, SPD_MESSAGE, v * 2 - 100);
+		spd_set_volume(spd, v * 2 - 100);
 	}
 	printf("TTS Set Volume: %d\n", v);
 }
