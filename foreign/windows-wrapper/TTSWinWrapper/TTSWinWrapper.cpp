@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <wchar.h>
+#include <string>
 
 BOOL APIENTRY DllMain(HANDLE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved)
 {
@@ -23,13 +24,13 @@ TTSWINWRAPPER_API void wwInit(void)
 
 	if (FAILED(::CoInitialize(NULL)))
 	{
-		std::cout << "Failed to initialize COM" << std::endl;
+		std::cerr << "Failed to initialize COM" << std::endl;
 	}
 
 	HRESULT hr = CoCreateInstance(CLSID_SpVoice, NULL, CLSCTX_ALL, IID_ISpVoice, (void **)&pVoice);
 	if (FAILED(hr))
 	{
-		std::cout << "Failed to initialize TTS." << std::endl;
+		std::cerr << "Failed to initialize TTS." << std::endl;
 	}
 }
 
@@ -46,22 +47,20 @@ TTSWINWRAPPER_API void wwSay(const char * words)
 {
 	if (pVoice)
 	{
-		std::cout << "Saying: " << words << std::endl;
-		size_t words_len = strlen(words);
-		wchar_t * words_w = (wchar_t *)malloc(words_len*sizeof(wchar_t));
-		mbstowcs(words_w, words, words_len);
-		if (FAILED(pVoice->Speak(words_w, SPF_DEFAULT, NULL)))
+		std::string words_s = std::string(words);
+		std::wstring words_w(words_s.begin(), words_s.end());
+
+		if (FAILED(pVoice->Speak(words_w.c_str(), SPF_DEFAULT, NULL)))
 		{
-			std::cout << "FAILED." << std::endl;
+			std::cerr << "FAILED." << std::endl;
 		}
 		else
 		{
-			std::cout << "Done." << std::endl;
 		}
 	}
 	else
 	{
-		std::cout << "TTS voice not set." << std::endl;
+		std::cerr << "TTS voice not set." << std::endl;
 	}
 }
 

@@ -6,7 +6,6 @@ static SPDConnection * spd;
 
 TTS::TTS()
 {
-	printf("TTS Init\n");
 	if (!spd)
 	{
 		spd = spd_open("libHsay", NULL, NULL, SPD_MODE_THREADED);
@@ -24,7 +23,6 @@ TTS::TTS()
 
 TTS::~TTS()
 {
-	printf("TTS Destroy\n");
 	if (spd)
 	{
 		spd_close(spd);
@@ -37,7 +35,6 @@ void TTS::say(const char * words)
 	{
 		spd_say(spd, SPD_MESSAGE, words);
 	}
-	printf("SAY: %s\n", words);
 }
 
 void TTS::setVolume(int v)
@@ -46,5 +43,4 @@ void TTS::setVolume(int v)
 	{
 		spd_set_volume(spd, v * 2 - 100);
 	}
-	printf("TTS Set Volume: %d\n", v);
 }

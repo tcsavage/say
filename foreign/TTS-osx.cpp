@@ -5,12 +5,10 @@
 
 TTS::TTS()
 {
-	printf("TTS Init\n");
 }
 
 TTS::~TTS()
 {
-	printf("TTS Destroy\n");
 }
 
 void TTS::say(const char * words)
@@ -25,5 +23,4 @@ void TTS::say(const char * words)
 
 void TTS::setVolume(int v)
 {
-	printf("TTS Set Volume: %d\n", v);
 }
