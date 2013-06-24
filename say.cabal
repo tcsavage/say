@@ -18,6 +18,10 @@ cabal-version:       >=1.8
 extra-source-files:  TTSWinWrapper.lib
 data-files:          TTSWinWrapper.dll
 
+flag buildexample
+  description:         Build and install an example program "saytest"
+  default:             False
+
 library
   exposed-modules:     System.Say
   build-depends:       base ==4.6.*
@@ -47,4 +51,7 @@ library
 executable saytest
   main-is:             Main.hs
   hs-source-dirs:      example
-  build-depends:       base ==4.6.*, say
+  if flag(buildexample)
+    build-depends:       base ==4.6.*, say
+  else
+    buildable: False
