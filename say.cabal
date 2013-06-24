@@ -34,6 +34,13 @@ library
     c-sources:
       foreign/TTS-osx.cpp
       foreign/cTTS.cpp
+  if os(linux)
+    extra-libraries:
+      stdc++
+      speechd
+    c-sources:
+      foreign/TTS-linux.cpp
+      foreign/cTTS.cpp
 
 executable saytest
   main-is:             Main.hs
