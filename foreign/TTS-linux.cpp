@@ -8,7 +8,7 @@ TTS::TTS()
 {
 	if (!spd)
 	{
-		spd = spd_open("libHsay", NULL, NULL, SPD_MODE_THREADED);
+		spd = spd_open("libHSsay", NULL, NULL, SPD_MODE_THREADED);
 		if (!spd)
 		{
 			printf("SPD init failed\n");
