@@ -46,6 +46,8 @@ library
     c-sources:
       foreign/TTS-osx.cpp
       foreign/cTTS.cpp
+    frameworks:
+      Carbon
   if os(linux)
     extra-libraries:
       stdc++
