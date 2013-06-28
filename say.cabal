@@ -4,19 +4,25 @@
 name:                say
 version:             0.1.0.0
 synopsis:            Simple text to speech
--- description:         
+description:         A super-simple interface to the system's native text to speech API.
+                     .
+                     * On Windows, TTSWinWrapper.dll is required on the path.
+                     * On Linux, libspeechd is a required dependency.
 homepage:            http://github.com/tcsavage/say
 license:             MIT
 license-file:        LICENSE
-author:              Tom Savage
-maintainer:          tcsavage@gmail.com
+author:              Tom Savage <tcsavage@gmail.com>
+maintainer:          Tom Savage <tcsavage@gmail.com>
 -- copyright:           
 category:            System
 stability:           experimental
 build-type:          Simple
 cabal-version:       >=1.8
-extra-source-files:  TTSWinWrapper.lib
-data-files:          TTSWinWrapper.dll
+extra-source-files:  TTSWinWrapper.lib, TTSWinWrapper.dll
+
+source-repository head
+  type:     git
+  location: https://github.com/tcsavage/say
 
 flag buildexample
   description:         Build and install an example program "saytest"
