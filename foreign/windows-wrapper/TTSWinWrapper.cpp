@@ -47,6 +47,7 @@ TTSWINWRAPPER_API void wwSay(const char * words)
 {
 	if (pVoice)
 	{
+		// Converts from char to wchar.
 		std::string words_s = std::string(words);
 		std::wstring words_w(words_s.begin(), words_s.end());
 
@@ -54,8 +55,20 @@ TTSWINWRAPPER_API void wwSay(const char * words)
 		{
 			std::cerr << "FAILED." << std::endl;
 		}
-		else
+	}
+	else
+	{
+		std::cerr << "TTS voice not set." << std::endl;
+	}
+}
+
+TTSWINWRAPPER_API void wwSetVolume(int v)
+{
+	if (pVoice)
+	{
+		if (FAILED(pVoice->SetVolume(v)))
 		{
+			std::cerr << "FAILED." << std::endl;
 		}
 	}
 	else

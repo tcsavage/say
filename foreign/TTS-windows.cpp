@@ -19,4 +19,5 @@ void TTS::say(const char * words)
 
 void TTS::setVolume(int v)
 {
+	wwSetVolume(v);
 }

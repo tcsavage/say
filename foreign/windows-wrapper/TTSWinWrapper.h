@@ -18,6 +18,7 @@ extern "C" {
 TTSWINWRAPPER_API void wwInit(void);
 TTSWINWRAPPER_API void wwDestroy(void);
 TTSWINWRAPPER_API void wwSay(const char *);
+TTSWINWRAPPER_API void wwSetVolume(int);
 
 #ifdef __cplusplus
 }
