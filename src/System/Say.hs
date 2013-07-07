@@ -1,4 +1,4 @@
-module System.Say (say, setVolume, withVolume) where
+module System.Say (say, setVolume) where
 
 import Control.Monad
 import Foreign.C
