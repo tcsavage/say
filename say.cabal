@@ -39,7 +39,7 @@ library
   if os(windows)
     extra-libraries:
           "user32", "gdi32", "winmm", "advapi32", "shell32", "shfolder", "stdc++", "TTSWinWrapper"
-    ld-options:        -L.
+    extra-lib-dirs:    .
     c-sources:
       foreign/TTS-windows.cpp
       foreign/cTTS.cpp
