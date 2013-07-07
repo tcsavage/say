@@ -6,7 +6,7 @@ version:             0.1.0.0
 synopsis:            Simple text to speech
 description:         A super-simple interface to the system's native text to speech API.
                      .
-                     * On Windows, TTSWinWrapper.lib and TTSWinWrapper.dll are required to build any package which depend on say.
+                     * On Windows, TTSWinWrapper.lib and TTSWinWrapper.dll (installed with package) are required to build any package which depend on say.
                      .
                      * On Linux, libspeechd is a required dependency.
 homepage:            http://github.com/tcsavage/say
