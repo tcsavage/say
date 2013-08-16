@@ -6,7 +6,7 @@ version:             0.1.0.0
 synopsis:            Simple text to speech
 description:         A super-simple interface to the system's native text to speech API.
                      .
-                     * On Windows, TTSWinWrapper.lib and TTSWinWrapper.dll (installed with package) are required to build any package which depend on say.
+                     * On Windows, it is reccommended to download the source (either with @cabal fetch && cabal unpack@ or by cloning the repository) and then install with @cabal install --extra-lib-dirs=%cd%@. This is to allow the package to build using the included TTSWinWrapper.lib file. TTSWinWrapper.lib and TTSWinWrapper.dll (installed with package) are also required to build any package which depend on say.
                      .
                      * On Linux, libspeechd is a required dependency.
 homepage:            http://github.com/tcsavage/say
@@ -33,13 +33,13 @@ flag buildexample
 
 library
   exposed-modules:     System.Say
+  other-modules:       System.Say.FFI
   build-depends:       base ==4.6.*
   hs-source-dirs:      src
   include-dirs:        include
   if os(windows)
     extra-libraries:
           "user32", "gdi32", "winmm", "advapi32", "shell32", "shfolder", "stdc++", "TTSWinWrapper"
-    ld-options:        -L.
     c-sources:
       foreign/TTS-windows.cpp
       foreign/cTTS.cpp
